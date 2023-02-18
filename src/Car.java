@@ -16,12 +16,6 @@ public class Car {
         distance = 5000;
     }
 
-    public void setDistance(int newDistance) {
-        distance = newDistance;
-    }
-
-
-
 
     /**
      * Создала конструктор (1 со значениями и 1 дефолтный)

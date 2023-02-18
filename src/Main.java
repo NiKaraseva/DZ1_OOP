@@ -23,6 +23,13 @@ public class Main {
         car_1.comparePower(car_2);
 
         /**
+         * Применила setPower, изменила мощность двигателя Range Rover и ещё раз сравнила машины
+         */
+
+        car_1.setPower(250);
+        car_1.comparePower(car_2);
+
+        /**
          * Присводила другое значение static distance
          */
 
