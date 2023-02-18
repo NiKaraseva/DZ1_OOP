@@ -1,14 +1,30 @@
 public class Car {
-    String model;
-    int year;
-    double price;
-    String color;
-    int power;
-    boolean status;
-    int distance;
+    private String model;
+    private int year;
+    private double price;
+    private String color;
+    private int power;
+    private boolean status;
+    protected static int distance;
+
 
     /**
-     * Создала и объявила значение distance
+     * Вынесла значение static отдельно
+     */
+
+    static {
+        distance = 5000;
+    }
+
+    public void setDistance(int newDistance) {
+        distance = newDistance;
+    }
+
+
+
+
+    /**
+     * Создала конструктор (1 со значениями и 1 дефолтный)
      */
 
     Car(String model, int year, double price, String color, int power) {
@@ -18,7 +34,9 @@ public class Car {
         this.color = color;
         this.power = power;
         status = false;
-        distance = 5000;
+    }
+
+    Car() {
     }
 
     public void getInfo() {
@@ -46,27 +64,61 @@ public class Car {
 
 
     /**
-     * Создала метод getModel и getPower (пригодился в методах comparePower() и raceTime())
+     * Создала геттеры и сеттеры (пригодился в методах comparePower() и raceTime())
      */
     public String getModel() {
         return model;
+    }
+
+    public void setModel(String modelSet) {
+        this.model = modelSet;
     }
 
     public int getPower() {
         return power;
     }
 
+    public void setPower(int powerSet) {
+        this.power = powerSet;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int yearSet) {
+        this.year = yearSet;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(int priceSet) {
+        this.price = priceSet;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String colorSet) {
+        this.color = colorSet;
+    }
+
+
     /**
-     * Метод сравнения 1-ой машины со второй по пораметру Power
+     * Метод сравнения 1-ой машины со второй по пораметру Power (изменила метод на более правильны)
      */
-    public void comparePower(String car2_model, int car2_power) {
-        if (getPower() > car2_power) {
-            System.out.println("Машина " + getModel() + " мощнее машины " + car2_model + " на " + (getPower()-car2_power) + " лошадиных силы.");
+    public void comparePower(Object car2) {
+        if (getPower() > ((Car) car2).getPower()) {
+            System.out.println("Машина " + getModel() + " мощнее машины " + ((Car) car2).getModel() + " на " + (getPower()-((Car) car2).getPower()) + " лошадиных силы.");
         }
         else {
-            System.out.println("Машина " + car2_model + " мощнее машины " + getModel() + " на " + (car2_power-getPower()) + " лошадиных силы.");
+            System.out.println("Машина " + ((Car) car2).getModel() + " мощнее машины " + getModel() + " на " + (((Car) car2).getPower()-getPower()) + " лошадиных силы.");
         }
     }
+
 
     /**
      * Метод, считающий, за какое количество времени машина проедет расстояние distance (скорость задаём рандомом через каждые 100 метров)

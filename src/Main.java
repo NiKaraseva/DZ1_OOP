@@ -20,15 +20,23 @@ public class Main {
         /**
          * Сравниваем мощность первой машины со второй
          */
-        car_1.comparePower("BMW X5", 275);
+        car_1.comparePower(car_2);
+
+        /**
+         * Присводила другое значение static distance
+         */
+
+        Car.distance = 7000;
 
         /**
          * Выводим время, за которое 2 машины проехали заданное расстояние distance (метод raceTime()), срваниваем результаты и
          * объявляем победителя.
          */
 
+
         double time_1 = car_1.raceTime();
         double time_2 = car_2.raceTime();
+
 
         System.out.println("Среднее время гонки машины " + car_1.getModel() + " составляет: " + time_1 + " секунд.");
         System.out.println("Среднее время гонки машины " + car_2.getModel() + " составляет: " + time_2 + " секунд.");
